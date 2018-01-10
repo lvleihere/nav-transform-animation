@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>nav-transform-animation</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing:border-box;
+        }
+        .wrap{
+            border:1px red solid;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        ul{
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        li{
+            width: 40px;
+            height: 8px;
+            background: #515050;
+            margin-top: 5px;
+            animatin
+        }
+        .go{
+            animation:go 1.5s ease forwards alternate;
+        }
+        .gogo{
+            animation:gogo 1.1s ease .3s forwards alternate;
+        }
+        .gogogo{
+            animation:gogogo .8s ease-in-out .5s alternate;
+        }
+        @keyframes go{
+            50%{
+                transform: translateY(-80px) rotate(-765deg);
+            }
+            100%{
+                transform: translateY(0) rotate(-765deg);
+            }
+        }
+        @keyframes gogo{
+            50%{
+                transform: translateY(-92px) rotate(405deg);
+            }
+            100%{
+                transform: translateY(-12px) rotate(405deg);
+            }
+        }
+        @keyframes gogogo{
+            50%{
+                transform: translateY(-100px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        (function(){
+            let ul = document.querySelector('ul'),
+            flag = 0,
+            lis = document.querySelectorAll('li');
+            ul.addEventListener('mousedown',function(){
+                if(!flag){
+                    Array.from(lis,(v,i)=>{
+                        v.classList.toggle('go'.repeat(++i));
+                    })
+                }else{
+                    Array.from(lis,(v,i)=>{
+                        v.classList.toggle('go'.repeat(++i));
+                    })
+                }
+            })
+        })()
+    </script>
+</body>
+</html>
